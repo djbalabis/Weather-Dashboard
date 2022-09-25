@@ -1,0 +1,13 @@
+var searchInput = document.querySelector(".inputValue");
+var searchBtn = document.querySelector(".searchBtn");
+var currentDate = moment();
+var cityDateIcon = document.querySelector(".city-date-icon");
+var topContainer = document.querySelector(".current-weather");
+var temp = document.querySelector(".temp");
+var humidity = document.querySelector(".humidity");
+var wind = document.querySelector(".wind");
+var uvi = document.querySelector(".uvi");
+var recentSearches = JSON.parse(localStorage.getItem("recents") || "[]");
+var recentContainer = $("#recent");
+var inputValue = $("#inputValue");
+var clear = $("#clearHistory");
