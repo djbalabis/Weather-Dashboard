@@ -13,7 +13,7 @@ var inputValue = $("#inputValue");
 var clear = $("#clearHistory");
 
 renderRecents();
-
+// Log of searched cities
 function renderRecents() {
   recentContainer.empty();
 
@@ -48,7 +48,7 @@ async function getWeather(city) {
     var apiUrl =
       "https://api.openweathermap.org/data/2.5/weather?q=" +
       city +
-      "&units=imperial&appid=9795009f60d5d1c3afe4e6df6002c319";
+      "&units=imperial&appid=fc300879c67e261854f3d0a54db41390";
   
     var response = await fetch(apiUrl);
     if (response.ok) {
@@ -62,7 +62,7 @@ async function getWeather(city) {
       var lon = data.coord.lat;
       await uvIndex(data.coord.lat, data.coord.lon);
       var icon = data.weather[0].icon;
-  
+      // Weather icon source
       var weatherURL = `https://openweathermap.org/img/wn/${icon}.png`;
       var icon = `<img src="${weatherURL}"/>`;
   
@@ -145,7 +145,7 @@ async function uvIndex(lat, lon) {
     if (uviValue < 3) {
         uviLine.classList.add("badge", "badge-info");
     }
-
+    // Five day data cards
     var cardString = "";
     var fiveDayHeader = document.querySelector(".five-day-forecast");
     var forecastHeader = document.querySelector(".fiveDayHeader");
@@ -175,3 +175,5 @@ async function uvIndex(lat, lon) {
     fiveDayCardContainer.innerHTML = cardString;
   }
 }
+
+// Search city to get present and future weather conditions
